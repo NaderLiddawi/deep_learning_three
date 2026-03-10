@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pth
+*.th
+*.zip
+*.ipynb_checkpoints
+classification_data/
+drive_data/

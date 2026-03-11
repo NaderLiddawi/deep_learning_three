@@ -34,21 +34,22 @@ class SuperTuxDataset(Dataset):
 
         if transform_pipeline == "default":
             xform = transforms.ToTensor()
+
         elif transform_pipeline == "aug":
-			xform = transforms.Compose(
-				[
-					transforms.RandomHorizontalFlip(),
-					transforms.ColorJitter(
-						brightness=0.4,
-						contrast=0.4,
-						saturation=0.4,
-						hue=0.1
-					),
-					transforms.RandomRotation(15),
-					transforms.RandomResizedCrop(64, scale=(0.8, 1.0)),
-					transforms.ToTensor(),
-				]
-			)
+            xform = transforms.Compose(
+                [
+                    transforms.RandomHorizontalFlip(),
+                    transforms.ColorJitter(
+                        brightness=0.4,
+                        contrast=0.4,
+                        saturation=0.4,
+                        hue=0.1,
+                    ),
+                    transforms.RandomRotation(15),
+                    transforms.RandomResizedCrop(64, scale=(0.8, 1.0)),
+                    transforms.ToTensor(),
+                ]
+            )
 
         if xform is None:
             raise ValueError(f"Invalid transform {transform_pipeline} specified!")
